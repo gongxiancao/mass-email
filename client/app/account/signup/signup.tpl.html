@@ -1,0 +1,34 @@
+<div class="page">
+  <div class="title">
+    Mass Email
+  </div>
+  <form class="form-validation" role="form" name="form" novalidate ng-submit="signup(form)">
+    <div class="form-group">
+      <input class="form-control" name="username" ng-model="user.username" type="email" placeholder="邮箱" required>
+      <div class="container-fluid alert alert-danger">
+        <span ng-show="form.username.$dirty && form.username.$error.required">邮箱不能为空</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="password" ng-model="user.password" type="password" placeholder="密码" required>
+      <div class="container-fluid alert alert-danger">
+        <span ng-show="form.password.$dirty && form.password.$error.required">密码不能为空</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="confirmPassword" ng-model="confirmPassword" type="password" placeholder="确认密码" required>
+      <div class="container-fluid alert alert-danger">
+        <span ng-show="form.confirmPassword.$dirty && form.confirmPassword.$error.required">确认密码不能为空</span>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary" ng-click="signup(form)" ng-disabled="form.$invalid || !protocolConfirmed" type="submit">
+        注 册
+      </button>
+    </div>
+    <div class="hint">
+      已经有账户？&nbsp;&nbsp;<a ng-click="cancel()">立即登录</a>
+    </div>
+    <label class="control-label">{{result.message}}</label>
+  </form>
+</div>

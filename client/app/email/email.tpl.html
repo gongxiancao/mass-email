@@ -1,0 +1,71 @@
+<div class="panel no-border">
+  <div class="panel-heading wrapper b-b b-light">
+    <span class="h4">Email发送设置</span>
+  </div>
+  <div class="row panel-body">
+    <form class="form-horizontal" ng-class="{submitted: form.submitted}" role="form" name="form" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="sender">发件人:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" placeholder='"Name"<a@b.com>' ng-model="email.sender" bp-required></input>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="host">SMTP服务器:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" placeholder="主机" ng-model="email.connection.host" bp-required></input>
+          <input type="text" class="form-control" placeholder="邮箱" ng-model="email.connection.auth.user" bp-required></input>
+          <input type="password" class="form-control" placeholder="密码" ng-model="email.connection.auth.pass" bp-required></input>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="receiver">收件人列表:</label>
+        <div class="col-sm-9">
+          <button class="anchor-button" ngf-select="importReceivers($file)">Excel导入</button>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>名字</th>
+                <th>Email</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="receiver in email.receivers">
+                <td>{{receiver.name}}</td>
+                <td>{{receiver.email}}</td>
+                <td ng-class="{'alert alert-danger glyphicon glyphicon-exclamation-sign': receiver.error, 'alert alert-success glyphicon glyphicon-ok-sign': receiver.success}">{{receiver.error}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="subjectTemplate" pc-required>标题模版:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="subjectTemplate" placeholder="Email的标题" ng-model="email.subjectTemplate" bp-required></input>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="contentTemplate">内容模版:</label>
+        <div class="col-sm-9">
+          <textarea class="form-control" rows="10" id="contentTemplate" ng-model="email.contentTemplate"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="sender">仅向未投递过的人发送:</label>
+        <div class="col-sm-9">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="email.sendOnlyFailedReceiver"> 是
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="panel-footer text-right">
+
+    <a class="btn btn-primary" ng-click="send()">发送</a>
+  </div>
+</div>

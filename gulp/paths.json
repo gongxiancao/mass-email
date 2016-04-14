@@ -1,0 +1,41 @@
+{
+  "html": ["assets/**/*.html"],
+  "css": ["assets/**/*.css"],
+  "less": ["assets/**/*.less"],
+  "sass": ["assets/**/*.scss"],
+  "coffee": [],
+  "client": {
+    "root": "client",
+    "styles": ["client/components/**/*.less", "client/app/**/*.less"],
+    "scripts": ["client/**/*.js", "!client/bower_components/**/*"],
+    "templates": ["client/**/*.tpl.html"],
+    "modules": ["client/**/*.module.js"],
+    "assets": ["client/assets/fonts/**/*", "client/assets/images/**/*", "client/assets/locales/**/*"],
+    "mainView": "client/index.html",
+    "mainStyle": "client/app/app.less",
+    "bowerStyle": "client/app/bower.less"
+  },
+  "server": {
+    "root": "server",
+    "scripts": ["server/**/*.js"]
+  },
+  "tmp": {
+    "root": ".tmp/public",
+    "fontRoot": ".tmp/public/fonts",
+    "styleRoot": ".tmp/public/styles",
+    "scriptRoot": ".tmp/public/js",
+    "minifyRoot": ".tmp/public/min",
+    "mainView": ".tmp/public/index.html",
+    "styles": [".tmp/public/styles/**/*.css", "!.tmp/public/styles/bower.css"],
+    "bowerStyles": [".tmp/public/styles/bower.css"],
+    "scripts": [".tmp/public/js/**/*.js", "!.tmp/public/js/bower_components/**/*"],
+    "templates": [".tmp/public/js/**/*.tpl.js"],
+    "distAssets": [".tmp/public/**/*", "!.tmp/public/js", "!.tmp/public/js/**/*",
+      "!.tmp/public/styles", "!.tmp/public/styles/**/*"]
+  },
+  "dist": {
+    "root": "dist",
+    "client": "dist/client",
+    "server": "dist/server"
+  }
+}
