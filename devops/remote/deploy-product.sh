@@ -3,6 +3,8 @@ cd $roomRoot
 # install npm modules if package.json changed
 cd ${env}-${project}-stage/server
 
+cp -rf /etc/${env}-${project}/* ./config/env
+
 sudo rm -rf node_modules
 if ! cmp $roomRoot/${env}-${project}/server/package.json.complete package.json >/dev/null 2>&1
 then

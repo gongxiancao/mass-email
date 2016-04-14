@@ -13,7 +13,7 @@ angular.module('massEmail', [
 ])
 .config(function($locationProvider, $urlRouterProvider, $stateProvider, $compileProvider) {
   $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/email');
 
   // allow blob in image src
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:image\//);

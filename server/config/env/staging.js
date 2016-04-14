@@ -2,14 +2,17 @@ module.exports = {
   connections: {
     mongo: {
       hosts: [
-        { host: 'mongo1.hangzhou.mass-email.cloudnapps.com', port: 27017 }
+        { host: '127.0.0.1', port: 27017 }
       ],
       database: 'massEmailStaging'
     },
   },
   auth: {
-    secret: '80E5BF89-BEEC-4561-B05E-8BB4752ED1D2',
+    secret: 'C6667C67-3846-49F3-86A2-19A3F001A1EC',
     tokenExpiresIn: 3600 * 8
   },
-  port: 10000
+  paths: {
+    public: '../client'
+  },
+  port: 11111
 };
