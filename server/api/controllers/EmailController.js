@@ -23,8 +23,9 @@ module.exports = {
         receiver.error = null;
       }, function (err) {
         receiver.error = err.message;
-      });
-    })
+      })
+      .delay(2);
+    }, {concurrency: 1})
     .then(function () {
       res.json(email);
     })
