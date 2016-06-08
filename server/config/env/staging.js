@@ -2,9 +2,11 @@ module.exports = {
   connections: {
     mongo: {
       hosts: [
-        { host: '127.0.0.1', port: 27017 }
+        { host: '10.165.60.202', port: 27017 }
       ],
-      database: 'massEmailStaging'
+      database: 'massEmailStaging',
+      username: 'massEmailStagingUser',
+      password: 'VwsXgwRXYuEt'
     },
   },
   auth: {
